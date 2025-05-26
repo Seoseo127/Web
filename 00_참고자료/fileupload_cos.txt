@@ -1,0 +1,6 @@
+파일업로드 : cos.jar (http://www.servlets.com/cos)
+	0. 사용할 라이브러리 파일 cos.jar 빌드패스 등록
+		(WebContent > WEB-INF > lib > cos.jar)
+	1. form 태그 선언 : method="post" 설정(POST 방식만 가능)
+	2. form 태그 선언 : enctype="multipart/form-data" 설정
+	3. form input 태그 : <input type="file" ...>
