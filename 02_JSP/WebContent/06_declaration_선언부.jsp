@@ -15,8 +15,9 @@
 	int a = 100;
 	int b = 200;
 	int sum = a + b;
-	System.out.println("sum(a, b) : " + sum(a, b));
-	System.out.println("tot : " + tot);
+	System.out.println("sum(a, b) : " + sum(a, b)); //필드에 선언된 메소드 사용
+	System.out.println("tot : " + tot); //필드에 선언된 tot 값 사용
+	
 %>	
 	<h3><%=a %> + <%=b %> = <%=sum %></h3>
 	<hr>
