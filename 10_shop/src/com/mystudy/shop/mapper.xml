@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shop">
+
+	<select id="list" parameterType="string"
+			resultType="com.mystudy.shop.ProductVO">
+		SELECT NUM, CATEGORY, PNUM, NAME, COMPANY
+		     , PRICE, SALEPRICE, IMAGE_SMALL, IMAGE_LARGE, CONTENT
+		     , REGDATE
+		FROM PRODUCT
+		WHERE CATEGORY = #{category}
+	</select>
+	
+	<!-- 타입 별칭 PVO 사용 -->
+	<select id="one" parameterType="string" resultType="PVO">
+		SELECT NUM, CATEGORY, PNUM, NAME, COMPANY
+		     , PRICE, SALEPRICE, IMAGE_SMALL, IMAGE_LARGE, CONTENT
+		     , REGDATE
+		FROM PRODUCT
+		WHERE PNUM = #{pnum}
+	</select>
+
+	<!-- <select id="list_alias" parameterType="string"
+			resultType="com.mystudy.shop.ProductVO">
+		SELECT NUM, CATEGORY, PNUM, NAME, COMPANY
+		     , PRICE, SALEPRICE
+		     , IMAGE_SMALL AS IMAGESMALL, IMAGE_LARGE AS IMAGELARGE
+		     , CONTENT, REGDATE
+		FROM PRODUCT
+		WHERE CATEGORY = #{category}
+	</select> -->
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
