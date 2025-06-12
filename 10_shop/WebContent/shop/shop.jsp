@@ -42,8 +42,9 @@
 	</div>
 </div>
 --%>
-	<%-- 상대주소 방식으로 URL 설정 --%>
-	<%-- <%@ include file="common/menu.jspf" %> --%>
+
+	<%-- 상대주소 방식 사용 --%>
+	<%-- <%@ include file="../common/menu.jspf" %> --%>
 	
 	<%-- 절대주소 방식으로 URL 설정 --%>
 	<%@ include file="/common/menu.jspf" %>

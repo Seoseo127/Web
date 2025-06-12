@@ -43,15 +43,48 @@ public class Cart {
 			//System.out.println("1개증가후 : " + list);
 		}
 	}
-	
-	//(실습)장바구니 제품 수량 변경 처리기능
+
+	//(실습)장바구니 제품 수량 금액만 통째로 빼고, 추가하기
 	public void editCount(String pnum, int count) {
+		ProductVO pvo = findProduct(pnum);
+		if (pvo == null) return;
+		// 기존 제품 금액만 빼기
+		total = total - pvo.getTotalPrice();
+		// 새로운 수량 금액 추가
+		pvo.setCount(count);
+		total = total + pvo.getTotalPrice();
+	}
+	
+	//(실습)변경된 수량 차액으로 계산처리
+	public void editCount2(String pnum, int count) {
 		
+	}	
+	
+	//(실습)장바구니 제품을 꺼내고, 다시 추가하기 방식
+	public void editCount3(String pnum, int count) {
+		ProductVO pvo = findProduct(pnum);
+		if (pvo == null) return;
+		// 기존 제품 들어내기(꺼내기)
+		boolean removed = list.remove(pvo);
+		if (removed) {
+			total = total - pvo.getTotalPrice();
+		}
+		// 새로운 수량으로 집어넣기(추가하기)
+		if (list.add(pvo)) {
+			pvo.setCount(count);
+			total = total + pvo.getTotalPrice();
+		}
 	}
 	
 	//(실습)장바구니 제품 삭제 처리기능
 	public void delProduct(String pnum) {
-		
+		//System.out.println("> Cart delProduct() 실행~~ : " + pnum);
+		ProductVO pvo = findProduct(pnum);
+		if (pvo == null) return;
+		boolean removed = list.remove(pvo);
+		if (removed) {
+			total = total - pvo.getTotalPrice();
+		}
 	}
 	
 	
